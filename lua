@@ -1,6 +1,6 @@
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
-local data = game:GetService("HttpService"):JSONDencode(readfile("data.lua"))
+local data = game:GetService("HttpService"):JSONDecode(readfile("data.lua"))
 local bind = data.bind
 local webhook = data.webhook
 block_random_player = function() --yeye kanner made that
