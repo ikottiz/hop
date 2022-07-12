@@ -69,23 +69,39 @@ block_random_player = function()
     end
 end
 local JSONTable = {
-    ['embeds'] = {
-         {
-             ['fields'] = {},
-             ['description'] = "successfully serverhoped this trash,finding new server rn",
-             ['title'] = "Servehopped",
-             ['footer'] = {
-                 ['text'] = "hi"
-             },
-             ['color'] = 5384145
+    ["avatar_url"] = "https://static.wikia.nocookie.net/rogue-lineage/images/9/9a/RedKasp.png/",
+    ["embeds"] = {
+        {
+            ["author"] = {
+                ["name"] = "ikottiz",
+                ["url"] = "",
+                ["icon_url"] = "https://web.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&Format=Png&userid="..game.Players.LocalPlayer.UserId
+            },
+            ["url"] = "https://www.roblox.com/games/"..game.PlaceId,
+            ["description"] = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Name,
+            ["color"] = 000000,
+            ["fields"] = {
+                {
+                    ["name"] = "JobId:",
+                    ["value"] = tostring("```"..game.JobId.."```"),
+                    ["inline"] = true
+                },
+            },
+            ["thumbnail"] = {
+                ["url"] = "https://web.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&Format=Png&userid="..game.Players.LocalPlayer.UserId
+            },
+            ["footer"] = {
+                ["text"] = "hopped",
+            }
+        }
     }
- }
 }
 mouse.KeyDown:connect(function(key)
     if key == bind then
         block_random_player()
         task.wait()
         player:Kick("hopping")
+        syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/ikottiz/hop/main/lua", true))()')
         syn.request({
             Url = "https://discord.com/api/webhooks/996102825820033154/cf_sRnk56r9IU32Z1WyflZJG9ZIFhVB2C74X3n3cSY0mG6V5R6dN39bZuyIPQUXuanXZ",
             Method = "POST",
