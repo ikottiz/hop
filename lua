@@ -2,7 +2,7 @@ local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
 local data = game:GetService("HttpService"):JSONDecode(readfile("data.lua"))
 local bind = "z"
-local webhook = data.webhook
+local webhook = data["webhook"]
 block_random_player = function() --yeye kanner made that
     local block_player 
     local players_list = services.Players:GetPlayers()
@@ -55,7 +55,7 @@ mouse.KeyDown:connect(function(key)
             game.TeleportService:Teleport(3016661674)
         end
         syn.request({
-            Url = data,
+            Url = webhook,
             Method = "POST",
             Headers = {["Content-Type"] = "application/json"},
             Body = game:GetService("HttpService"):JSONEncode(JSONTable)
